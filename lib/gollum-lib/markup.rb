@@ -57,6 +57,7 @@ module Gollum
     attr_reader :include_levels
     attr_reader :to_xml_opts
     attr_reader :dir
+    attr_reader :metadata
 
     # Initialize a new Markup object.
     #
@@ -67,7 +68,11 @@ module Gollum
       if page
         @wiki        = page.wiki
         @name        = page.filename
-        @data        = page.text_data
+        @data = page.text_data
+        if @data =~ /\A(---\s*\n.*?\n?)^((---|\.\.\.)\s*$\n?)/m
+          @data = $POSTMATCH
+          @metadata = SafeYAML.load($1)
+        end
         @version     = page.version.id if page.version
         @format      = page.format
         @sub_page    = page.sub_page

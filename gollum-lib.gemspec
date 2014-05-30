@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'stringex', '~> 2.5.1'
   s.add_dependency 'sanitize', '~> 2.1.0'
   s.add_dependency 'github-markup', '~> 1.1.0'
+  s.add_dependency('safe_yaml', '~> 1.0')
 
   s.add_development_dependency 'org-ruby', '~> 0.9.3'
   s.add_development_dependency 'github-markdown', '~> 0.6.5'

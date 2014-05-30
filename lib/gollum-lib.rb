@@ -9,6 +9,7 @@ require 'grit'
 require File.expand_path('../gollum-lib/grit_ext', __FILE__)
 require 'github/markup'
 require 'sanitize'
+require 'safe_yaml/load'
 
 # internal
 require File.expand_path('../gollum-lib/git_access', __FILE__)
