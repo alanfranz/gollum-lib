@@ -69,10 +69,13 @@ module Gollum
         @wiki        = page.wiki
         @name        = page.filename
         @data = page.text_data
-        if @data =~ /\A(---\s*\n.*?\n?)^((---|\.\.\.)\s*$\n?)/m
-          @data = $POSTMATCH
-          @metadata = SafeYAML.load($1)
+        @metadata = Hash.new
+        m = @data.match /\A(?<metadata>---\s*\n.*?\n?)^((---|\.\.\.)\s*$\n?)/m
+        if m
+          @metadata = SafeYAML.load(m['metadata'])
+          @data = m.post_match
         end
+
         @version     = page.version.id if page.version
         @format      = page.format
         @sub_page    = page.sub_page
