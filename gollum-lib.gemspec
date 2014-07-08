@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
   s.add_dependency('safe_yaml', '~> 1.0')
 
   s.add_development_dependency 'org-ruby', '~> 0.9.3'
-  s.add_development_dependency 'github-markdown', '~> 0.6.5'
+  s.add_development_dependency 'github-markdown-jekyll', '~> 0.7'
   s.add_development_dependency 'RedCloth', '~> 4.2.9'
   s.add_development_dependency 'mocha', '~> 1.0.0'
   s.add_development_dependency 'shoulda', '~> 3.5.0'
